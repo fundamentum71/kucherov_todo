@@ -15,6 +15,9 @@
 			border: solid 2px $hard-color;
 		}
 	}
+	textarea {
+		resize: none;
+	}
 	&__title {
 		width: 260px;
 		height: 50px;

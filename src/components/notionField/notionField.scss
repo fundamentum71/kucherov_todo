@@ -1,0 +1,51 @@
+@import '../../style/variables.scss';
+
+.notionField {
+	margin-top: 50px;
+	position: absolute;
+	width: 500px;
+	left: 400px;
+	input {
+		display: block;
+		border: solid 2px $main-color;
+		border-radius: 10px;
+		margin: 20px;
+		font-size: 25px;
+		&:focus {
+			border: solid 2px $hard-color;
+		}
+	}
+	textarea {
+		resize: none;
+	}
+	&__title {
+		width: 260px;
+		height: 50px;
+		padding-left: 15px;
+		padding-right: 15px;
+		color: $main-color;
+		background-color: $yellow;
+		&::placeholder {
+			color: $main-color;
+		}
+	}
+	&__text {
+		display: block;
+		border: solid 2px $main-color;
+		border-radius: 10px;
+		margin: 20px;
+		width: 500px;
+		height: 300px;
+		padding: 15px;
+		font-size: 25px;
+		color: $main-color;
+		&::placeholder {
+			color: $main-color;
+		}
+	}
+	h3 {
+		font-size: 30px;
+		text-align: center;
+		color: $main-color;
+	}
+}

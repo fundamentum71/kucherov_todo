@@ -4,6 +4,7 @@ import NotionSearch from '../notionSearch/notionSearch';
 import CreateButton from '../createButton/createButton';
 import NotionList from '../notionList/notionList';
 import CreateField from '../createField/createField';
+import NotionField from '../notionField/notionField';
 
 import '../../style/style.scss';
 
@@ -19,6 +20,7 @@ function App() {
 				</div>
 				<div className="rightPanel">
 					<CreateField />
+					{/*<NotionField />*/}
 				</div>
 			</div>
 		</div>
