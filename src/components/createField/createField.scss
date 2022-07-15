@@ -19,6 +19,11 @@
 		width: 260px;
 		height: 50px;
 		padding-left: 15px;
+		padding-right: 15px;
+		color: $main-color;
+		&::placeholder {
+			color: $main-color;
+		}
 	}
 	&__text {
 		display: block;
@@ -29,6 +34,10 @@
 		height: 300px;
 		padding: 15px;
 		font-size: 25px;
+		color: $main-color;
+		&::placeholder {
+			color: $main-color;
+		}
 	}
 	h3 {
 		font-size: 30px;
