@@ -1,0 +1,15 @@
+@import '../../style/variables.scss';
+
+.createButton {
+	display: block;
+	width: 260px;
+	height: 50px;
+	margin: 28px;
+	border-radius: 10px;
+	border-color: $main-color;
+	color: $ez-color;
+	line-height: 20px;
+	padding: 15px;
+	font-size: 25px;
+	background-color: $main-color;
+}
