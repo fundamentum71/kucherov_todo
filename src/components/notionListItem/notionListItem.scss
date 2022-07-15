@@ -7,6 +7,9 @@
 	margin: 20px auto;
 	border: solid 2px $hard-color;
 	border-radius: 10px;
+	&:active {
+		transform: scale(1.05);
+	}
 
 	button {
 		display: block;
@@ -28,5 +31,11 @@
 		justify-content: right;
 		align-items: center;
 		height: 100%;
+	}
+	&__active {
+		background-color: $yellow;
+		button {
+			background-color: $yellow;
+		}
 	}
 }

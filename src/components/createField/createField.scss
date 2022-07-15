@@ -1,0 +1,41 @@
+@import '../../style/variables.scss';
+
+.createField {
+	margin-top: 50px;
+	position: absolute;
+	width: 500px;
+	left: 400px;
+	input {
+		display: block;
+		border: solid 2px $main-color;
+		border-radius: 10px;
+		margin: 20px;
+		font-size: 25px;
+		&:focus {
+			border: solid 2px $hard-color;
+		}
+	}
+	&__title {
+		width: 260px;
+		height: 50px;
+		padding-left: 15px;
+	}
+	&__text {
+		display: block;
+		border: solid 2px $main-color;
+		border-radius: 10px;
+		margin: 20px;
+		width: 500px;
+		height: 300px;
+		padding: 15px;
+		font-size: 25px;
+	}
+	h3 {
+		font-size: 30px;
+		text-align: center;
+		color: $main-color;
+	}
+	button {
+		margin-left: 120px;
+	}
+}
