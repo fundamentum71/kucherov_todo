@@ -1,0 +1,32 @@
+@import '../../style/variables.scss';
+
+.notionListItem {
+	background-color: rgb(255, 255, 255);
+	width: 300px;
+	height: 50px;
+	margin: 20px auto;
+	border: solid 2px $hard-color;
+	border-radius: 10px;
+
+	button {
+		display: block;
+		margin-right: 10px;
+		background-color: #ffffff;
+		border: none;
+		:active {
+			transform: scale(1.1);
+		}
+	}
+	span {
+		font-size: 25px;
+		margin-right: 50%;
+		color: $main-color;
+	}
+
+	&__wpapper {
+		display: flex;
+		justify-content: right;
+		align-items: center;
+		height: 100%;
+	}
+}

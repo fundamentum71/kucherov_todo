@@ -2,6 +2,7 @@ import Header from '../header/header';
 
 import NotionSearch from '../notionSearch/notionSearch';
 import CreateButton from '../createButton/createButton';
+import NotionList from '../notionList/notionList';
 
 import '../../style/style.scss';
 
@@ -13,6 +14,7 @@ function App() {
 				<div className="leftPanel">
 					<NotionSearch />
 					<CreateButton />
+					<NotionList />
 				</div>
 			</div>
 		</div>

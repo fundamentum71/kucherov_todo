@@ -4,12 +4,17 @@
 	display: block;
 	width: 260px;
 	height: 50px;
-	margin: 28px;
+	margin: 0 28px 28px 28px;
 	border-radius: 10px;
 	border-color: $main-color;
 	color: $ez-color;
-	line-height: 20px;
+	border: solid;
+	line-height: 0px;
 	padding: 15px;
 	font-size: 25px;
 	background-color: $main-color;
+	&:active {
+		transform: scale(1.05);
+		border-color: $hard-color;
+	}
 }
