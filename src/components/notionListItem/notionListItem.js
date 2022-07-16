@@ -3,7 +3,7 @@ import star from '../../resources/img/star.svg';
 import trash from '../../resources/img/trash.svg';
 
 const NotionListItem = (props) => {
-	const { title, text, important, onDelete, onToggleProp } = props;
+	const { title, text, important, onDelete, onToggleProp, active } = props;
 
 	let className = 'notionListItem';
 
@@ -11,10 +11,16 @@ const NotionListItem = (props) => {
 		className += ' important';
 	}
 
+	if (active) {
+		className += ' active';
+	}
+
 	return (
 		<li className={className}>
 			<div className="notionListItem__wpapper">
-				<span>{title}</span>
+				<span onClick={onToggleProp} data-toggle="active">
+					{title}
+				</span>
 				<div className="notionListItem__wpapper-inner">
 					<button
 						className="notionListItem__like"

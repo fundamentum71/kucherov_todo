@@ -18,18 +18,21 @@ class App extends Component {
 					title: 'apple',
 					text: 'an apple grows on a tree',
 					important: true,
+					active: true,
 					id: 1,
 				},
 				{
 					title: 'cow',
 					text: 'cow grazing in the meadow',
 					important: false,
+					active: false,
 					id: 2,
 				},
 				{
 					title: 'bird',
 					text: 'a bird flies across the sky',
 					important: false,
+					active: false,
 					id: 3,
 				},
 			],
@@ -46,7 +49,13 @@ class App extends Component {
 	};
 
 	addItem = (title, text) => {
-		const newItem = { title, text, id: this.maxId++, important: false };
+		const newItem = {
+			title,
+			text,
+			id: this.maxId++,
+			important: false,
+			active: false,
+		};
 		this.setState(({ data }) => {
 			const newArr = [...data, newItem];
 			return {

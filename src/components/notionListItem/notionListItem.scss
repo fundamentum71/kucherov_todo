@@ -41,16 +41,16 @@
 		display: flex;
 		justify-content: right;
 	}
-	&__active {
-		background-color: $yellow;
-		button {
-			background-color: $yellow;
-		}
-	}
 }
 
 .important {
 	span {
 		color: red;
+	}
+}
+.active {
+	background-color: $yellow;
+	button {
+		background-color: $yellow;
 	}
 }
