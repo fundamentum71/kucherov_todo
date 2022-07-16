@@ -34,12 +34,23 @@ class App extends Component {
 				},
 			],
 		};
+		this.maxId = 4;
 	}
 
 	deleteItem = (id) => {
 		this.setState(({ data }) => {
 			return {
 				data: data.filter((item) => item.id !== id),
+			};
+		});
+	};
+
+	addItem = (title, text) => {
+		const newItem = { title, text, id: this.maxId++, important: false };
+		this.setState(({ data }) => {
+			const newArr = [...data, newItem];
+			return {
+				data: newArr,
 			};
 		});
 	};
@@ -56,7 +67,7 @@ class App extends Component {
 						<NotionList data={data} onDelete={(id) => this.deleteItem(id)} />
 					</div>
 					<div className="rightPanel">
-						<CreateField />
+						<CreateField onAdd={this.addItem} />
 						{/*<NotionField />*/}
 					</div>
 				</div>
