@@ -47,6 +47,10 @@
 			background-color: $yellow;
 		}
 	}
-	&__important {
+}
+
+.important {
+	span {
+		color: red;
 	}
 }

@@ -1,11 +1,18 @@
 import NotionListItem from '../notionListItem/notionListItem';
 import './notionList.scss';
 
-const NotionList = ({ data, onDelete }) => {
+const NotionList = ({ data, onDelete, onToggleProp }) => {
 	const element = data.map((item) => {
 		const { id, ...itemProps } = item;
 		return (
-			<NotionListItem key={id} {...itemProps} onDelete={() => onDelete(id)} />
+			<NotionListItem
+				key={id}
+				{...itemProps}
+				onDelete={() => onDelete(id)}
+				onToggleProp={(e) =>
+					onToggleProp(id, e.currentTarget.getAttribute('data-toggle'))
+				}
+			/>
 		);
 	});
 

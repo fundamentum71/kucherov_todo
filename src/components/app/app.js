@@ -5,7 +5,7 @@ import NotionSearch from '../notionSearch/notionSearch';
 import CreateButton from '../createButton/createButton';
 import NotionList from '../notionList/notionList';
 import CreateField from '../createField/createField';
-//import NotionField from '../notionField/notionField';
+import NotionField from '../notionField/notionField';
 
 import '../../style/style.scss';
 
@@ -29,7 +29,7 @@ class App extends Component {
 				{
 					title: 'bird',
 					text: 'a bird flies across the sky',
-					important: true,
+					important: false,
 					id: 3,
 				},
 			],
@@ -55,6 +55,17 @@ class App extends Component {
 		});
 	};
 
+	onToggleProp = (id, prop) => {
+		this.setState(({ data }) => ({
+			data: data.map((item) => {
+				if (item.id === id) {
+					return { ...item, [prop]: !item[prop] };
+				}
+				return item;
+			}),
+		}));
+	};
+
 	render() {
 		const { data } = this.state;
 		return (
@@ -64,11 +75,15 @@ class App extends Component {
 					<div className="leftPanel">
 						<NotionSearch />
 						<CreateButton />
-						<NotionList data={data} onDelete={(id) => this.deleteItem(id)} />
+						<NotionList
+							data={data}
+							onDelete={(id) => this.deleteItem(id)}
+							onToggleProp={this.onToggleProp}
+						/>
 					</div>
 					<div className="rightPanel">
-						<CreateField onAdd={this.addItem} />
-						{/*<NotionField />*/}
+						{/*<CreateField onAdd={this.addItem} />*/}
+						<NotionField />
 					</div>
 				</div>
 			</div>
