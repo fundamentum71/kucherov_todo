@@ -7,15 +7,19 @@
 	margin: 20px auto;
 	border: solid 2px $hard-color;
 	border-radius: 10px;
-	&:active {
-		transform: scale(1.05);
-	}
+	//&:active {
+	//	transform: scale(1.05);
+	//}
+	cursor: pointer;
 
 	button {
 		display: block;
+
 		margin-right: 10px;
 		background-color: #ffffff;
 		border: none;
+		cursor: pointer;
+
 		:active {
 			transform: scale(1.1);
 		}

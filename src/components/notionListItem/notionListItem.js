@@ -3,7 +3,7 @@ import star from '../../resources/img/star.svg';
 import trash from '../../resources/img/trash.svg';
 
 const NotionListItem = (props) => {
-	const { title, text, important } = props;
+	const { title, text, important, onDelete } = props;
 
 	return (
 		<li className="notionListItem">
@@ -13,7 +13,7 @@ const NotionListItem = (props) => {
 					<button className="notionListItem__like">
 						<img src={star} alt="like" />
 					</button>
-					<button className="notionListItem__trash">
+					<button className="notionListItem__trash" onClick={onDelete}>
 						<img src={trash} alt="trash" />
 					</button>
 				</div>

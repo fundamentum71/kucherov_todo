@@ -36,6 +36,14 @@ class App extends Component {
 		};
 	}
 
+	deleteItem = (id) => {
+		this.setState(({ data }) => {
+			return {
+				data: data.filter((item) => item.id !== id),
+			};
+		});
+	};
+
 	render() {
 		const { data } = this.state;
 		return (
@@ -45,7 +53,7 @@ class App extends Component {
 					<div className="leftPanel">
 						<NotionSearch />
 						<CreateButton />
-						<NotionList data={data} />
+						<NotionList data={data} onDelete={(id) => this.deleteItem(id)} />
 					</div>
 					<div className="rightPanel">
 						<CreateField />
