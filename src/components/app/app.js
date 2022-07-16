@@ -75,6 +75,26 @@ class App extends Component {
 		}));
 	};
 
+	onActive = (id) => {
+		this.onSingleActive();
+		this.setState(({ data }) => ({
+			data: data.map((item) => {
+				if (item.id === id) {
+					return { ...item, active: !item.active };
+				}
+				return item;
+			}),
+		}));
+	};
+
+	onSingleActive = () => {
+		this.setState(({ data }) => ({
+			data: data.map((item) => {
+				return { ...item, active: false };
+			}),
+		}));
+	};
+
 	render() {
 		const { data } = this.state;
 		return (
@@ -88,11 +108,12 @@ class App extends Component {
 							data={data}
 							onDelete={(id) => this.deleteItem(id)}
 							onToggleProp={this.onToggleProp}
+							onActive={this.onActive}
 						/>
 					</div>
 					<div className="rightPanel">
-						{/*<CreateField onAdd={this.addItem} />*/}
-						<NotionField />
+						<CreateField onAdd={this.addItem} />
+						{/*<NotionField />*/}
 					</div>
 				</div>
 			</div>

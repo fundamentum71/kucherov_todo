@@ -3,7 +3,8 @@ import star from '../../resources/img/star.svg';
 import trash from '../../resources/img/trash.svg';
 
 const NotionListItem = (props) => {
-	const { title, text, important, onDelete, onToggleProp, active } = props;
+	const { title, text, important, onDelete, onToggleProp, active, onActive } =
+		props;
 
 	let className = 'notionListItem';
 
@@ -18,7 +19,11 @@ const NotionListItem = (props) => {
 	return (
 		<li className={className}>
 			<div className="notionListItem__wpapper">
-				<span onClick={onToggleProp} data-toggle="active">
+				<span
+					onClick={onActive}
+					//onClick={onToggleProp}
+					//data-toggle="active"
+				>
 					{title}
 				</span>
 				<div className="notionListItem__wpapper-inner">
