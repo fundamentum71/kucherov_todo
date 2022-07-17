@@ -31,6 +31,7 @@ class NotionField extends Component {
 						name="title"
 						onChange={this.onValueChange}
 						className="notionField__title"
+						disabled
 					/>
 					<textarea
 						type="text"
@@ -38,6 +39,7 @@ class NotionField extends Component {
 						value={text}
 						onChange={this.onValueChange}
 						className="notionField__text"
+						disabled
 					></textarea>
 				</form>
 			</div>

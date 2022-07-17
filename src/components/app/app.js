@@ -13,36 +13,23 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: [
-				{
-					title: 'apple',
-					text: 'an apple grows on a tree',
-					important: true,
-					active: true,
-					id: 1,
-				},
-				{
-					title: 'cow',
-					text: 'cow grazing in the meadow',
-					important: false,
-					active: false,
-					id: 2,
-				},
-				{
-					title: 'bird',
-					text: 'a bird flies across the sky',
-					important: false,
-					active: false,
-					id: 3,
-				},
-			],
-			create: false,
+			data: [],
+			create: true,
 			term: '',
 		};
-		this.maxId = 4;
+		this.maxId = 0;
 	}
 
 	deleteItem = (id) => {
+		this.state.data.forEach((item) => {
+			if (item.id === id && item.active === true) {
+				this.onSingleActive();
+				this.setState(({ create }) => ({
+					create: true,
+				}));
+			}
+		});
+
 		this.setState(({ data }) => {
 			return {
 				data: data.filter((item) => item.id !== id),
@@ -100,6 +87,7 @@ class App extends Component {
 	};
 
 	onToggleCreate = () => {
+		this.onSingleActive();
 		this.setState(({ create }) => ({
 			create: true,
 		}));
@@ -124,11 +112,29 @@ class App extends Component {
 		this.setState({ term: term });
 	};
 
+	onSaveLocal = () => {
+		localStorage.setItem('todos', JSON.stringify(this.state.data));
+		localStorage.setItem('id', JSON.stringify(this.maxId));
+	};
+
+	onGetLocal = () => {
+		this.setState({ data: JSON.parse(localStorage.getItem('todos')) });
+		this.maxId = JSON.parse(localStorage.getItem('id'));
+	};
+	componentDidMount() {
+		this.onGetLocal();
+		this.onSingleActive();
+	}
+	componentDidUpdate() {
+		this.onSaveLocal();
+		console.log('update');
+	}
+
 	render() {
 		const { data, create, term } = this.state;
 		const visibleNotes = data.filter((item) => item.active);
 		const searchNotes = this.searchNotes(data, term);
-		//this.localSave();
+		//this.onSaveLocal();
 		//console.log(visibleNotes);
 		return (
 			<div className="app">
@@ -145,7 +151,7 @@ class App extends Component {
 						/>
 					</div>
 					<div className="rightPanel">
-						{create ? (
+						{create || !this.state.data.length ? (
 							<CreateField onAdd={this.addItem} />
 						) : (
 							<NotionField data={visibleNotes} />
