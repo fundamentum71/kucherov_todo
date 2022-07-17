@@ -37,6 +37,7 @@ class App extends Component {
 				},
 			],
 			create: false,
+			term: '',
 		};
 		this.maxId = 4;
 	}
@@ -110,25 +111,34 @@ class App extends Component {
 		}));
 	};
 
-	//visibleNotes = () => {
-	//	this.setState(({ data }) => ({
-	//		data: data.filter((item) => (item.active = true)),
-	//	}));
-	//};
+	searchNotes = (items, term) => {
+		if (term.length === 0) {
+			return items;
+		}
+		return items.filter((item) => {
+			return item.title.indexOf(term) > -1;
+		});
+	};
+
+	onUpdateSearch = (term) => {
+		this.setState({ term: term });
+	};
 
 	render() {
-		const { data, create } = this.state;
+		const { data, create, term } = this.state;
 		const visibleNotes = data.filter((item) => item.active);
+		const searchNotes = this.searchNotes(data, term);
+		//this.localSave();
 		//console.log(visibleNotes);
 		return (
 			<div className="app">
 				<Header />
 				<div className="main-wrapper">
 					<div className="leftPanel">
-						<NotionSearch />
+						<NotionSearch onUpdateSearch={this.onUpdateSearch} />
 						<CreateButton onToggleCreate={() => this.onToggleCreate()} />
 						<NotionList
-							data={data}
+							data={searchNotes}
 							onDelete={(id) => this.deleteItem(id)}
 							onToggleProp={this.onToggleProp}
 							onActive={this.onActive}
