@@ -127,15 +127,13 @@ class App extends Component {
 	}
 	componentDidUpdate() {
 		this.onSaveLocal();
-		console.log('update');
 	}
 
 	render() {
 		const { data, create, term } = this.state;
 		const visibleNotes = data.filter((item) => item.active);
 		const searchNotes = this.searchNotes(data, term);
-		//this.onSaveLocal();
-		//console.log(visibleNotes);
+
 		return (
 			<div className="app">
 				<Header />

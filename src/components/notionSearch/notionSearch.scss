@@ -11,7 +11,7 @@
 	border-radius: 10px;
 	border: solid;
 	border-color: $main-color;
-	padding: 15px;
+	padding-left: 40px;
 	font-size: 25px;
 	color: $main-color;
 	&::placeholder {
@@ -23,8 +23,8 @@
 		display: block;
 		position: absolute;
 		top: 15px;
-		right: 30px;
-		width: 25px;
+		left: 40px;
+		width: 22px;
 	}
 	&:focus {
 		border-color: $hard-color;

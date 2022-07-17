@@ -13,6 +13,7 @@
 	padding: 15px;
 	font-size: 25px;
 	background-color: $main-color;
+	cursor: pointer;
 	&:active {
 		transform: scale(1.05);
 		border-color: $hard-color;

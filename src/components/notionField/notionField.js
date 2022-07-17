@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import star from '../../resources/img/star.svg';
 import './notionField.scss';
 
 class NotionField extends Component {
@@ -33,6 +34,13 @@ class NotionField extends Component {
 						className="notionField__title"
 						disabled
 					/>
+					<button
+						className="notionListItem__like-notionField"
+						//onClick={onToggleProp}
+						//data-toggle="important"
+					>
+						<img src={star} alt="like" />
+					</button>
 					<textarea
 						type="text"
 						name="text"

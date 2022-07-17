@@ -49,3 +49,17 @@
 		color: $main-color;
 	}
 }
+
+.notionListItem__like-notionField {
+	display: block;
+	position: absolute;
+	top: 31px;
+	left: 288px;
+	background-color: #ffffff;
+	border: none;
+	cursor: pointer;
+
+	:active {
+		transform: scale(1.1);
+	}
+}
