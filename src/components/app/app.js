@@ -36,6 +36,7 @@ class App extends Component {
 					id: 3,
 				},
 			],
+			create: false,
 		};
 		this.maxId = 4;
 	}
@@ -77,6 +78,8 @@ class App extends Component {
 
 	onActive = (id) => {
 		this.onSingleActive();
+		this.onToggleNotes();
+
 		this.setState(({ data }) => ({
 			data: data.map((item) => {
 				if (item.id === id) {
@@ -95,15 +98,35 @@ class App extends Component {
 		}));
 	};
 
+	onToggleCreate = () => {
+		this.setState(({ create }) => ({
+			create: true,
+		}));
+	};
+
+	onToggleNotes = () => {
+		this.setState(({ create }) => ({
+			create: false,
+		}));
+	};
+
+	//visibleNotes = () => {
+	//	this.setState(({ data }) => ({
+	//		data: data.filter((item) => (item.active = true)),
+	//	}));
+	//};
+
 	render() {
-		const { data } = this.state;
+		const { data, create } = this.state;
+		const visibleNotes = data.filter((item) => item.active);
+		//console.log(visibleNotes);
 		return (
 			<div className="app">
 				<Header />
 				<div className="main-wrapper">
 					<div className="leftPanel">
 						<NotionSearch />
-						<CreateButton />
+						<CreateButton onToggleCreate={() => this.onToggleCreate()} />
 						<NotionList
 							data={data}
 							onDelete={(id) => this.deleteItem(id)}
@@ -112,8 +135,11 @@ class App extends Component {
 						/>
 					</div>
 					<div className="rightPanel">
-						<CreateField onAdd={this.addItem} />
-						{/*<NotionField />*/}
+						{create ? (
+							<CreateField onAdd={this.addItem} />
+						) : (
+							<NotionField data={visibleNotes} />
+						)}
 					</div>
 				</div>
 			</div>
