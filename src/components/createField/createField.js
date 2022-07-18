@@ -18,6 +18,7 @@ class CreateField extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
+
 		if (this.state.title.length && this.state.text.length) {
 			this.props.onAdd(this.state.title, this.state.text);
 			this.setState({

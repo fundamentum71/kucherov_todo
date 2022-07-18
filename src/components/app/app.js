@@ -122,7 +122,13 @@ class App extends Component {
 		this.maxId = JSON.parse(localStorage.getItem('id'));
 	};
 	componentDidMount() {
-		this.onGetLocal();
+		if (
+			localStorage.getItem('todos') !== null &&
+			localStorage.getItem('id') !== null
+		) {
+			this.onGetLocal();
+		}
+
 		this.onSingleActive();
 	}
 	componentDidUpdate() {
@@ -152,7 +158,15 @@ class App extends Component {
 						{create || !this.state.data.length ? (
 							<CreateField onAdd={this.addItem} />
 						) : (
-							<NotionField data={visibleNotes} />
+							<NotionField
+								data={visibleNotes}
+								onToggleProp={(e) =>
+									this.onToggleProp(
+										data.id,
+										e.currentTarget.getAttribute('data-toggle')
+									)
+								}
+							/>
 						)}
 					</div>
 				</div>

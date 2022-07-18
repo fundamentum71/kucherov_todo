@@ -18,7 +18,7 @@ class NotionField extends Component {
 	};
 
 	render() {
-		const { data } = this.props;
+		const { data, onToggleProp } = this.props;
 
 		const visibleData = data[0];
 
@@ -35,9 +35,10 @@ class NotionField extends Component {
 						disabled
 					/>
 					<button
+						type="button"
 						className="notionListItem__like-notionField"
-						//onClick={onToggleProp}
-						//data-toggle="important"
+						data-toggle="important"
+						onClick={onToggleProp}
 					>
 						<img src={star} alt="like" />
 					</button>

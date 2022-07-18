@@ -19,13 +19,7 @@ const NotionListItem = (props) => {
 	return (
 		<li className={className}>
 			<div className="notionListItem__wpapper">
-				<span
-					onClick={onActive}
-					//onClick={onToggleProp}
-					//data-toggle="active"
-				>
-					{title}
-				</span>
+				<span onClick={onActive}>{title}</span>
 				<div className="notionListItem__wpapper-inner">
 					<button
 						className="notionListItem__like"
