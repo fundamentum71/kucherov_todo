@@ -19,7 +19,7 @@ class App extends Component {
 		};
 		this.maxId = 0;
 	}
-
+	//Функция для удаления из списка. Прокидывается в NotionList, далее в NotionListItem. Срабатывается при нажатии на кнопку.
 	deleteItem = (id) => {
 		this.state.data.forEach((item) => {
 			if (item.id === id && item.active === true) {
@@ -29,14 +29,13 @@ class App extends Component {
 				}));
 			}
 		});
-
 		this.setState(({ data }) => {
 			return {
 				data: data.filter((item) => item.id !== id),
 			};
 		});
 	};
-
+	//Функция для добавления в список.Прокидывается в CreateField, далее используется при submit
 	addItem = (title, text) => {
 		const newItem = {
 			title,
@@ -53,6 +52,7 @@ class App extends Component {
 		});
 	};
 
+	//Функция для переключения important. Прокидывается в NotionList, далее в NotionListItem. При нажатии на звездочку, меняется ее цвет.
 	onToggleProp = (id, prop) => {
 		this.setState(({ data }) => ({
 			data: data.map((item) => {
@@ -64,6 +64,7 @@ class App extends Component {
 		}));
 	};
 
+	//Функция для переключения active в объекте заметки. Прокидывается в NotionList, далее в NotionListItem. При нажатии на спан title заметка становится желтой.
 	onActive = (id) => {
 		this.onSingleActive();
 		this.onToggleNotes();
